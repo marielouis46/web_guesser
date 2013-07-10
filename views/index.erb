@@ -1,10 +1,9 @@
 <html>
-	<head></head>
+	<head><strong> Guess the Secret number!!! </strong> </head>
 	<body>
-		<p>
-		   "The SECRET NUMBER is <%= number %>"
-		</p>
+		<p>"Type in a number between 1 and 100"</p>
 	</body>
+	<body style= 'background: orange'>
 
 	<form>
 		<input type= 'text' name= 'guess' />
@@ -12,4 +11,11 @@
 	</form>
 </html>	
 
-<%= message %>
+<% if params["guess"].to_i > number.to_i %>
+  You have guessed too high
+<% elsif params["guess"].to_i < number.to_i %>
+  You have guessed too low
+<% else params["guess"].to_i == number.to_i %>
+  You are correct!!
+  The secret number is <%= number %>
+<% end %>
